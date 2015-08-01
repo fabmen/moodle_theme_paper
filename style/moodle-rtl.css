@@ -26594,7 +26594,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
   position: absolute;
   display: block;
   top: 51px;
-  z-index: 1000;
+  z-index: 900;
   min-height: 100%;
   max-height: none;
   background-color: #c9cbdc;

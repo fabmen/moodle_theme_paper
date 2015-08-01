@@ -22095,7 +22095,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 .sidebar {
   position: absolute;
   top: 51px;
-  z-index: 1000;
+  z-index: 900;
   display: block;
   min-height: 100%;
   max-height: none;

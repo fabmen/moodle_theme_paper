@@ -206,12 +206,7 @@
     -o-transition: all 300ms ease;
     transition: all 300ms ease;
 }
-.sidebar-content-animate  {
-    -webkit-transition: -webkit-left 300ms ease;
-    -moz-transition: -moz-left 300ms ease;
-    -o-transition: left 300ms ease;
-    transition: left 300ms ease;
-}
+
 /* Left panel positioning classes */ 
 .sidebar.sidebar-left {
     -webkit-transform: translate(-100%,0);
