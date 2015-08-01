@@ -101,10 +101,7 @@ a:hover, a:focus {
  background-color: @navbar-default-bg;
   border-color: @navbar-default-border;
     color: @navbar-default-color;
-    &:hover,
-    &:focus {
-      background-color: @navbar-default-toggle-hover-bg;
-    }
+    
     > li > a {
       color: @navbar-default-link-color;
 

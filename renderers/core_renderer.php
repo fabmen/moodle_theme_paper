@@ -85,13 +85,14 @@ class theme_paper_core_renderer extends core_renderer {
 
         // TODO: eliminate this duplicated logic, it belongs in core, not
         // here. See MDL-39565.
+        $firstmenu = new custom_menu('', '');
         if (isloggedin() && !isguestuser() ) {
             $branchtitle = get_string('mycourses');
             $branchlabel = '<i class="fa fa-briefcase"></i> '.$branchtitle;
             $branchurl   = new moodle_url('/my/index.php');
             $branchsort  = -10;
 
-            $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+            $branch = $firstmenu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
             if ($courses = enrol_get_my_courses(NULL, 'fullname ASC')) {
                 foreach ($courses as $course) {
                     if ($course->visible){
@@ -103,8 +104,13 @@ class theme_paper_core_renderer extends core_renderer {
         $branchlabel = '<i class="fa fa-sitemap"></i> '.$branchtitle;
         $branchurl   = new moodle_url('/course/index.php');
         $branchsort  = -20;
-        $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+        $firstmenu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
         $content = '<ul class="nav navbar-nav">';
+        foreach ($firstmenu->get_children() as $item) {
+            $content .= $this->render_custom_menu_item($item, 1);
+        }
+        
+        $content .= '</ul><ul class="nav navbar-nav">';
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }

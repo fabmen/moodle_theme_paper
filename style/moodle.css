@@ -9577,6 +9577,9 @@ a:focus {
   color: #2196f3;
   text-decoration: none;
 }
+.row {
+  position: relative;
+}
 .navbar-nav .dropdown-menu {
   color: #2a385c;
   background-color: #c9cbdc;

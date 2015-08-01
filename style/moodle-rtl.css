@@ -11792,6 +11792,10 @@ a:focus {
   text-decoration: none;
 }
 
+.row {
+  position: relative;
+}
+
 .navbar-nav .dropdown-menu {
   background-color: #c9cbdc;
   border-color: transparent;
