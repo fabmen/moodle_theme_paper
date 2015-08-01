@@ -1,5 +1,5 @@
 /**
- * Gruntfile for compiling theme_bootstrap .less files.
+ * Gruntfile for compiling theme_paper .less files.
  *
  * This file configures tasks to be run by Grunt
  * http://gruntjs.com/ for the current theme.

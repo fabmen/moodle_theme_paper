@@ -1,7 +1,7 @@
 {
-  "name": "theme-bootstrap-tasks",
+  "name": "theme-paper-tasks",
   "version": "0.1.0",
-  "description": "Grunt tasks for Moodle Bootstrap theme.",
+  "description": "Grunt tasks for Moodle Paper theme.",
   "main": "Gruntfile.js",
   "author": {
     "name": "Joby Harding",
@@ -10,14 +10,15 @@
   "contributors": [
     { "name": "David Scotson" },
     { "name": "Bas Brands", "url": "http://www.basbrands.nl" },
-    { "name": "Gareth J Barnard", "url": "http://about.me/gjbarnard" }
+    { "name": "Gareth J Barnard", "url": "http://about.me/gjbarnard" },
+    { "name": "Fabrice Menard" }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/bmbrands/theme_bootstrap.git"
+    "url": "https://github.com/fabmen/moodle_theme_paper.git"
   },
   "bugs": {
-    "url": "https://github.com/bmbrands/theme_bootstrap/issues"
+    "url": "https://github.com/fabmen/moodle_theme_paper/issues"
   },
   "dependencies": {
     "grunt": "~0.4.5",
