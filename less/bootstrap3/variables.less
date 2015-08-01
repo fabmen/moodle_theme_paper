@@ -20,6 +20,8 @@
 @brand-warning:         #ff9800;
 @brand-danger:          #e51c23;
 
+@theme1:                      #c9cbdc;
+@theme2:                      #2a385c;
 
 //== Scaffolding
 //
@@ -359,12 +361,12 @@
 @navbar-padding-vertical:          ((@navbar-height - @line-height-computed) / 2);
 @navbar-collapse-max-height:       340px;
 
-@navbar-default-color:             #2a385c;//@gray-light;
-@navbar-default-bg:                #c9cbdc;//#fff;
+@navbar-default-color:             @theme2;//@gray-light;
+@navbar-default-bg:                @theme1;//#fff;
 @navbar-default-border:            transparent;
 
 // Navbar links
-@navbar-default-link-color:                #2a385c;//@gray;
+@navbar-default-link-color:                @theme2;//@gray;
 @navbar-default-link-hover-color:          @gray-dark;
 @navbar-default-link-hover-bg:             transparent;
 @navbar-default-link-active-color:         @gray-dark;
@@ -385,8 +387,8 @@
 
 //=== Inverted navbar
 // Reset inverted navbar basics
-@navbar-inverse-color:                      #c9cbdc;//@gray-light;
-@navbar-inverse-bg:                         #2a385c;//@brand-primary;
+@navbar-inverse-color:                      @theme1;//@gray-light;
+@navbar-inverse-bg:                         @theme2;//@brand-primary;
 @navbar-inverse-border:                     transparent;
 
 // Inverted navbar links

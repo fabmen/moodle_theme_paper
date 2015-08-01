@@ -11726,15 +11726,9 @@ input[type="checkbox"]:disabled:checked:after,
 
 .dropdown-submenu > a:after {
   display: block;
-  content: " ";
+  content: "\f0da";
   float: left;
-  width: 0;
-  height: 0;
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 5px 5px 0;
-  border-right-color: rgba(0, 0, 0, 0.15);
-  margin-top: 5px;
+  font-family: FontAwesome;
   margin-left: -10px;
 }
 
@@ -11799,14 +11793,9 @@ a:focus {
 }
 
 .navbar-nav .dropdown-menu {
-  background-color: #2a385c;
+  background-color: #c9cbdc;
   border-color: transparent;
-  color: #c9cbdc;
-}
-
-.navbar-nav .dropdown-menu:hover,
-.navbar-nav .dropdown-menu:focus {
-  background-color: transparent;
+  color: #2a385c;
 }
 
 .navbar-nav .dropdown-menu > li > a {
@@ -11816,7 +11805,7 @@ a:focus {
 .navbar-nav .dropdown-menu > li > a:hover,
 .navbar-nav .dropdown-menu > li > a:focus {
   color: #212121;
-  background-color: transparent;
+  background-color: #b5b8cf;
 }
 
 .navbar-nav .dropdown-menu > .active > a,
@@ -11846,7 +11835,7 @@ a:focus {
 .navbar-inverse .navbar-nav .dropdown-menu > li > a:hover,
 .navbar-inverse .navbar-nav .dropdown-menu > li > a:focus {
   color: #ffffff;
-  background-color: transparent;
+  background-color: #1a2339;
 }
 
 .navbar-inverse .navbar-nav .dropdown-menu > .active > a,

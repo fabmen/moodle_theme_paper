@@ -34,15 +34,9 @@
     }
     & > a:after {
         display:block;
-        content:" ";
+        content:"\f0da";
         float:right;
-        width:0;
-        height:0;
-        border-color:transparent;
-        border-style:solid;
-        border-width:5px 0 5px 5px;
-        border-left-color: @dropdown-border;
-        margin-top:5px;
+        font-family: FontAwesome;
         margin-right:-10px;
     }
 }
@@ -103,11 +97,11 @@ a:hover, a:focus {
     text-decoration: none;
 }
 
-.navbar > .dropdown-menu {
- background-color: @navbar-inverse-bg;
-  border-color: @navbar-inverse-border;
-    color: @navbar-inverse-color;
-     &:hover,
+.navbar-nav  .dropdown-menu {
+ background-color: @navbar-default-bg;
+  border-color: @navbar-default-border;
+    color: @navbar-default-color;
+    &:hover,
     &:focus {
       background-color: @navbar-default-toggle-hover-bg;
     }
@@ -116,8 +110,8 @@ a:hover, a:focus {
 
       &:hover,
       &:focus {
-        color: @navbar-default-link-hover-color;
-        background-color: @navbar-default-link-hover-bg;
+        color: @navbar-default-link-active-color;
+        background-color: @navbar-default-link-active-bg;
       }
     }
     > .active > a {
@@ -137,7 +131,7 @@ a:hover, a:focus {
       }
     }
 }
-.navbar-inverse > dropdown-menu{
+.navbar-inverse .navbar-nav .dropdown-menu{
  background-color: @navbar-inverse-bg;
   border-color: @navbar-inverse-border;
     color: @navbar-inverse-color;
@@ -146,8 +140,8 @@ a:hover, a:focus {
 
       &:hover,
       &:focus {
-        color: @navbar-inverse-link-hover-color;
-        background-color: @navbar-inverse-link-hover-bg;
+        color: @navbar-inverse-link-active-color;
+        background-color: @navbar-inverse-link-active-bg;
       }
     }
     > .active > a {

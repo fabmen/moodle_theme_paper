@@ -85,7 +85,25 @@ class theme_paper_core_renderer extends core_renderer {
 
         // TODO: eliminate this duplicated logic, it belongs in core, not
         // here. See MDL-39565.
+        if (isloggedin() && !isguestuser() ) {
+            $branchtitle = get_string('mycourses');
+            $branchlabel = '<i class="fa fa-briefcase"></i> '.$branchtitle;
+            $branchurl   = new moodle_url('/my/index.php');
+            $branchsort  = -10;
 
+            $branch = $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+            if ($courses = enrol_get_my_courses(NULL, 'fullname ASC')) {
+                foreach ($courses as $course) {
+                    if ($course->visible){
+                        $branch->add(format_string($course->fullname), new moodle_url('/course/view.php?id='.$course->id), format_string($course->shortname));
+                    }
+                }
+        } }
+        $branchtitle = get_string('showallcourses');
+        $branchlabel = '<i class="fa fa-sitemap"></i> '.$branchtitle;
+        $branchurl   = new moodle_url('/course/index.php');
+        $branchsort  = -20;
+        $menu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
         $content = '<ul class="nav navbar-nav">';
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);

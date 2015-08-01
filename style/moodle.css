@@ -9525,15 +9525,9 @@ input[type="checkbox"]:disabled:checked:after,
 .dropdown-submenu > a:after {
   display: block;
   float: right;
-  width: 0;
-  height: 0;
-  margin-top: 5px;
   margin-right: -10px;
-  content: " ";
-  border-color: transparent;
-  border-style: solid;
-  border-width: 5px 0 5px 5px;
-  border-left-color: rgba(0, 0, 0, .15);
+  font-family: FontAwesome;
+  content: "\f0da";
 }
 .dropdown-submenu:hover > .dropdown-menu {
   display: block;
@@ -9584,13 +9578,9 @@ a:focus {
   text-decoration: none;
 }
 .navbar-nav .dropdown-menu {
-  color: #c9cbdc;
-  background-color: #2a385c;
+  color: #2a385c;
+  background-color: #c9cbdc;
   border-color: transparent;
-}
-.navbar-nav .dropdown-menu:hover,
-.navbar-nav .dropdown-menu:focus {
-  background-color: transparent;
 }
 .navbar-nav .dropdown-menu > li > a {
   color: #2a385c;
@@ -9598,7 +9588,7 @@ a:focus {
 .navbar-nav .dropdown-menu > li > a:hover,
 .navbar-nav .dropdown-menu > li > a:focus {
   color: #212121;
-  background-color: transparent;
+  background-color: #b5b8cf;
 }
 .navbar-nav .dropdown-menu > .active > a,
 .navbar-nav .dropdown-menu > .active > a:hover,
@@ -9623,7 +9613,7 @@ a:focus {
 .navbar-inverse .navbar-nav .dropdown-menu > li > a:hover,
 .navbar-inverse .navbar-nav .dropdown-menu > li > a:focus {
   color: #fff;
-  background-color: transparent;
+  background-color: #1a2339;
 }
 .navbar-inverse .navbar-nav .dropdown-menu > .active > a,
 .navbar-inverse .navbar-nav .dropdown-menu > .active > a:hover,
