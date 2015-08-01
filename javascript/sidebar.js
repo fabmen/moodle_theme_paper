@@ -34,6 +34,8 @@ require(['jquery'], function ($) {
 
     this.$element
       .addClass('sidebar-open ')
+    $('.sidebar-content-animate ').addClass('col-md-6 col-md-push-3').removeClass('col-md-9')
+    $('.sidebar-other-animate ').addClass('col-md-push-3')
 
     this.transitioning = 1
 
@@ -59,7 +61,8 @@ require(['jquery'], function ($) {
 
     this.$element
       .removeClass('sidebar-open ')
-
+    $('.sidebar-content-animate').removeClass('col-md-6 col-md-push-3').addClass('col-md-9')
+    $('.sidebar-other-animate ').removeClass('col-md-push-3')
     this.transitioning = 1
 
     var complete = function () {

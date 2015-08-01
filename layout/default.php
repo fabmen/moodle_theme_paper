@@ -72,9 +72,9 @@ echo $OUTPUT->doctype() ?>
 
 <div id="page" class="container-fluid">
     
-
+    
     <div id="page-content" class="row">
-        <div id="region-main" class="<?php echo $regions['content']; ?>">
+        <div id="region-main" class="sidebar-content-animate <?php echo $regions['content']; ?>">
         <header id="page-header" class="clearfix">
             <div class="container-fluid">
                 <a href="<?php echo $CFG->wwwroot ?>" class="logo"></a>
@@ -100,11 +100,11 @@ echo $OUTPUT->doctype() ?>
 
         <?php
         if ($knownregionpre) {
-            echo $OUTPUT->blocks('side-pre', $regions['pre'] . ' sidebar sidebar sidebar-left sidebar-lg-show sidebar-animate' . $html->sidebarclass);
+            echo $OUTPUT->blocks('side-pre', $regions['pre'] . ' sidebar sidebar sidebar-left sidebar-open sidebar-lg-show sidebar-animate' . $html->sidebarclass);
         }?>
         <?php
         if ($knownregionpost) {
-            echo $OUTPUT->blocks('side-post', $regions['post']);
+            echo $OUTPUT->blocks('side-post', 'sidebar-other-animate ' .$regions['post']);
         }?>
     </div>
 

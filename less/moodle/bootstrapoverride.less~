@@ -79,6 +79,7 @@ pre {
     color:@navbar-default-brand-color;
     border:none;
     font-size:20px;
+    padding:0px;
     .box-shadow(none);
  }
  &.navbar-inverse .navbar-toggle {
@@ -90,4 +91,8 @@ pre {
 .block{
 margin-top: 9px;
 margin-bottom:9px;
+}
+
+.container-fluid {
+    max-width: none;
 }

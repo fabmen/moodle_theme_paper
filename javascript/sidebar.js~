@@ -33,7 +33,8 @@ require(['jquery'], function ($) {
     if (startEvent.isDefaultPrevented()) return
 
     this.$element
-      .addClass('sidebar-open col-sm-pull-6 col-lg-pull-8').removeClass('col-sm-pull-9 col-lg-pull-10')
+      .addClass('sidebar-open ')
+    $('#region-main').addClass('col-md-6 col-md-push-3').removeClass('col-md-9')
 
     this.transitioning = 1
 
@@ -58,8 +59,8 @@ require(['jquery'], function ($) {
     if(startEvent.isDefaultPrevented()) return
 
     this.$element
-      .removeClass('sidebar-open col-sm-pull-6 col-lg-pull-8').addClass('col-sm-pull-9 col-lg-pull-10')
-
+      .removeClass('sidebar-open ')
+     $('#region-main').removeClass('col-md-6 col-md-push-3').addClass('col-md-9')
     this.transitioning = 1
 
     var complete = function () {

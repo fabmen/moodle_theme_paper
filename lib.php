@@ -41,9 +41,9 @@
 function theme_paper_bootstrap_grid($hassidepre, $hassidepost) {
 
     if ($hassidepre && $hassidepost) {
-        $regions = array('content' => 'col-xs-12 col-sm-9 col-lg-8 col-lg-push-2');
-        $regions['pre'] = 'col-xs-9  col-sm-6  col-lg-2 ';
-        $regions['post'] = 'col-xs-12 col-sm-3 col-lg-2 ';
+        $regions = array('content' => 'col-xs-12 col-sm-9 col-md-6 col-lg-8 col-md-push-3 col-lg-push-2');
+        $regions['pre'] = 'col-xs-9  col-sm-6  col-md-3 col-lg-2 col-lg-pull-10';
+        $regions['post'] = 'col-xs-12 col-sm-3 col-md-3 col-lg-2 col-md-push-3 col-lg-push-2';
     } else if ($hassidepre && !$hassidepost) {
         $regions = array('content' => 'col-sm-9 col-sm-push-3 col-lg-10 col-lg-push-2');
         $regions['pre'] = 'col-sm-3 col-sm-pull-9 col-lg-2 col-lg-pull-10';

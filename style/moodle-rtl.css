@@ -8142,12 +8142,12 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default {
-  background-color: #ffffff;
+  background-color: #c9cbdc;
   border-color: transparent;
 }
 
 .navbar-default .navbar-brand {
-  color: #666666;
+  color: #2a385c;
 }
 
 .navbar-default .navbar-brand:hover,
@@ -8157,11 +8157,11 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-text {
-  color: #bbbbbb;
+  color: #2a385c;
 }
 
 .navbar-default .navbar-nav > li > a {
-  color: #666666;
+  color: #2a385c;
 }
 
 .navbar-default .navbar-nav > li > a:hover,
@@ -8174,7 +8174,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
   color: #212121;
-  background-color: #eeeeee;
+  background-color: #b5b8cf;
 }
 
 .navbar-default .navbar-nav > .disabled > a,
@@ -8205,13 +8205,13 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
-  background-color: #eeeeee;
+  background-color: #b5b8cf;
   color: #212121;
 }
 
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #666666;
+    color: #2a385c;
   }
 
   .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
@@ -8224,7 +8224,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #212121;
-    background-color: #eeeeee;
+    background-color: #b5b8cf;
   }
 
   .navbar-default .navbar-nav .open .dropdown-menu > .disabled > a,
@@ -8236,7 +8236,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .navbar-link {
-  color: #666666;
+  color: #2a385c;
 }
 
 .navbar-default .navbar-link:hover {
@@ -8244,7 +8244,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-default .btn-link {
-  color: #666666;
+  color: #2a385c;
 }
 
 .navbar-default .btn-link:hover,
@@ -8260,7 +8260,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse {
-  background-color: #2196f3;
+  background-color: #2a385c;
   border-color: transparent;
 }
 
@@ -8275,7 +8275,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 
 .navbar-inverse .navbar-text {
-  color: #bbbbbb;
+  color: #c9cbdc;
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -8292,7 +8292,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 .navbar-inverse .navbar-nav > .active > a:hover,
 .navbar-inverse .navbar-nav > .active > a:focus {
   color: #ffffff;
-  background-color: #0c7cd5;
+  background-color: #1a2339;
 }
 
 .navbar-inverse .navbar-nav > .disabled > a,
@@ -8317,13 +8317,13 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
-  border-color: #0c84e4;
+  border-color: #1f2943;
 }
 
 .navbar-inverse .navbar-nav > .open > a,
 .navbar-inverse .navbar-nav > .open > a:hover,
 .navbar-inverse .navbar-nav > .open > a:focus {
-  background-color: #0c7cd5;
+  background-color: #1a2339;
   color: #ffffff;
 }
 
@@ -8350,7 +8350,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:hover,
   .navbar-inverse .navbar-nav .open .dropdown-menu > .active > a:focus {
     color: #ffffff;
-    background-color: #0c7cd5;
+    background-color: #1a2339;
   }
 
   .navbar-inverse .navbar-nav .open .dropdown-menu > .disabled > a,
@@ -11495,7 +11495,7 @@ input[type="checkbox"]:disabled:checked:after,
   margin-left: 0;
   background-color: transparent;
   border: none;
-  color: #666666;
+  color: #2a385c;
   -webkit-box-shadow: inset 0 -1px 0 #dddddd;
   box-shadow: inset 0 -1px 0 #dddddd;
   -webkit-transition: all 0.2s;
@@ -11770,7 +11770,7 @@ pre {
 }
 
 .navbar .navbar-toggle {
-  color: #666666;
+  color: #2a385c;
   border: none;
   font-size: 20px;
   padding: 0px;
@@ -11785,6 +11785,17 @@ pre {
 .block {
   margin-top: 9px;
   margin-bottom: 9px;
+}
+
+a {
+  color: #212121;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: #2196f3;
+  text-decoration: none;
 }
 
 /* some very targetted corrections to roll back nameclashes between
@@ -22063,7 +22074,7 @@ textarea#page-mod-forum-discuss .discussioncontrols .discussioncontrol.movediscu
 }
 
 .container-fluid {
-  max-width: 1680px;
+  max-width: none;
   margin: 0 auto;
 }
 
@@ -26580,25 +26591,23 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 /* sidebar settings */
 
 .sidebar {
-  position: fixed;
+  position: absolute;
   display: block;
   top: 51px;
-  bottom: 0;
   z-index: 1000;
   min-height: 100%;
   max-height: none;
-  overflow: auto;
-  background-color: #ffffff;
+  background-color: #c9cbdc;
   border-color: transparent;
   -webkit-box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
   box-shadow: -1px 1px 2px rgba(0, 0, 0, 0.3);
-  color: #666666;
+  color: #2a385c;
 }
 
 .sidebar .block {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #bbbbbb;
+  border-bottom: 1px solid #2a385c;
   -webkit-box-shadow: none;
   box-shadow: none;
 }
@@ -26608,11 +26617,11 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 }
 
 .sidebar .block .header h2 {
-  color: #666666;
+  color: #2a385c;
 }
 
 .sidebar a {
-  color: #666666;
+  color: #2a385c;
 }
 
 .sidebar a:hover,
@@ -26625,7 +26634,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 .sidebar .active > a:hover,
 .sidebar .active > a:focus {
   color: #212121;
-  background-color: #eeeeee;
+  background-color: #b5b8cf;
 }
 
 .sidebar .disabled > a,
@@ -26636,13 +26645,13 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 }
 
 .sidebar-inverse {
-  background-color: #2196f3;
+  background-color: #2a385c;
   border-color: transparent;
   color: #b2dbfb;
 }
 
 .sidebar-inverse .block {
-  border-bottom: 1px solid #bbbbbb;
+  border-bottom: 1px solid #c9cbdc;
 }
 
 .sidebar-inverse .block .header h2 {
@@ -26663,7 +26672,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 .sidebar-inverse .active > a:hover,
 .sidebar-inverse .active > a:focus {
   color: #ffffff;
-  background-color: #0c7cd5;
+  background-color: #1a2339;
 }
 
 .sidebar-inverse .disabled > a,
@@ -26673,15 +26682,13 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
   background-color: transparent;
 }
 
-/*
 .sidebar-left {
-    left: 0;
+  right: 0;
 }
 
 .sidebar-right {
-    right: 0;
+  left: 0;
 }
-*/
 
 /* css to override hiding the sidebar according to different screen sizes */
 
@@ -26713,6 +26720,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
   /*right sidebar is untested */
 
   .row .sidebar.sidebar-right.sidebar-sm-show {
+    left: 0;
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
@@ -26722,6 +26730,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 
 @media (min-width: 992px) {
   .row .sidebar.sidebar-left.sidebar-md-show {
+    right: 0;
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
@@ -26729,6 +26738,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
   }
 
   .row .sidebar.sidebar-right.sidebar-md-show {
+    left: 0;
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
@@ -26738,6 +26748,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 
 @media (min-width: 1170px) {
   .row .sidebar.sidebar-left.sidebar-lg-show {
+    right: 0;
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
@@ -26745,6 +26756,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
   }
 
   .row .sidebar.sidebar-right.sidebar-lg-show {
+    left: 0;
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
@@ -26754,10 +26766,12 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 
 /* animation class - optional: without it the sidebar would just pop in and out*/
 
-.sidebar-animate {
-  -webkit-transition: -webkit-transform 300ms ease;
-  -o-transition: -o-transform 300ms ease;
-  transition: transform 300ms ease;
+.sidebar-animate,
+.sidebar-content-animate,
+.sidebar-other-animate {
+  -webkit-transition: -webkit-all 300ms ease;
+  -o-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 
 /* Left panel positioning classes */

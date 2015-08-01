@@ -22,14 +22,13 @@
 
 /* sidebar settings */
 .sidebar {
-    position: fixed;
+    position: absolute;
     display: block;
     top: 51px;
-    bottom: 0;
     z-index: 1000;
     min-height: 100%;
     max-height: none;
-    overflow: auto;
+    //overflow: auto;
     background-color: @navbar-default-bg;
     border-color: @navbar-default-border;
     .box-shadow(1px 1px 2px rgba(0,0,0,.3));
@@ -110,7 +109,7 @@
     }
 }
 
-/*
+
 .sidebar-left {
     left: 0;
 }
@@ -118,7 +117,7 @@
 .sidebar-right {
     right: 0;
 }
-*/
+
 /* css to override hiding the sidebar according to different screen sizes */ 
 .row .sidebar.sidebar-left.sidebar-xs-show {
     //left: 0;
@@ -151,7 +150,7 @@
 
     /*right sidebar is untested */ 
     .row .sidebar.sidebar-right.sidebar-sm-show {
-       // right: 0;
+        right: 0;
         -webkit-transform: translate(0,0);
         -ms-transform: translate(0,0);
         -o-transform: translate(0,0);
@@ -162,7 +161,7 @@
 
 @media (min-width: 992px) {
     .row .sidebar.sidebar-left.sidebar-md-show {
-        //left: 0;
+        left: 0;
         -webkit-transform: translate(0,0);
         -ms-transform: translate(0,0);
         -o-transform: translate(0,0);
@@ -171,7 +170,7 @@
     }
 
     .row .sidebar.sidebar-right.sidebar-md-show {
-        //right: 0;
+        right: 0;
         -webkit-transform: translate(0,0);
         -ms-transform: translate(0,0);
         -o-transform: translate(0,0);
@@ -182,7 +181,7 @@
 
 @media (min-width: 1170px) {
     .row .sidebar.sidebar-left.sidebar-lg-show {
-       // left: 0;
+        left: 0;
         -webkit-transform: translate(0,0);
         -moz-transform: translate(0,0);
         -ms-transform: translate(0,0);
@@ -191,7 +190,7 @@
     }
 
     .row .sidebar.sidebar-right.sidebar-lg-show {
-        //right: 0;
+        right: 0;
         -webkit-transform: translate(0,0);
         -moz-transform: translate(0,0);
         -ms-transform: translate(0,0);
@@ -201,11 +200,11 @@
 }
 
 /* animation class - optional: without it the sidebar would just pop in and out*/
-.sidebar-animate {
-    -webkit-transition: -webkit-transform 300ms ease;
-    -moz-transition: -moz-transform 300ms ease;
-    -o-transition: transform 300ms ease;
-    transition: transform 300ms ease;
+.sidebar-animate, .sidebar-content-animate , .sidebar-other-animate  {
+    -webkit-transition: -webkit-all 300ms ease;
+    -moz-transition: -moz-all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
 }
 
 /* Left panel positioning classes */ 

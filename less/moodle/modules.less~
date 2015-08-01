@@ -160,7 +160,7 @@ select {
     margin: 0;
 }
 .container-fluid {
-    max-width: none;//1680px;
+    max-width: 1680px;
     margin: 0 auto;
 }
 // contributed by Paul Hibbitts, see http://msdn.microsoft.com/en-us/library/ie/jj583807(v=vs.85).aspx
