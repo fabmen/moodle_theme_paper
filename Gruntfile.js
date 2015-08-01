@@ -133,7 +133,7 @@ module.exports = function(grunt) {
                     strictMath: true,
                     outputSourceFiles: true,
                     sourceMap: true,
-                    sourceMapRootpath: '/theme/' + THEMEDIR,
+                    sourceMapRootpath: 'theme/' + THEMEDIR,
                     sourceMapFilename: 'style/moodle.css'
                 },
                 src: 'less/moodle.less',
@@ -146,7 +146,7 @@ module.exports = function(grunt) {
                     strictMath: true,
                     outputSourceFiles: true,
                     sourceMap: true,
-                    sourceMapRootpath: '/theme/' + THEMEDIR,
+                    sourceMapRootpath: 'theme/' + THEMEDIR,
                     sourceMapFilename: 'style/editor.css'
                 },
                 src: 'less/editor.less',
@@ -267,7 +267,7 @@ module.exports = function(grunt) {
                     overwrite: true,
                     replacements: [{
                         from: 'sourceMappingURL=',
-                        to: 'sourceMappingURL=/theme/'+ THEMEDIR + '/style/'
+                        to: 'sourceMappingURL=theme/'+ THEMEDIR + '/style/'
                     }]
             }
         },
