@@ -1,6 +1,6 @@
 
 require(['core/first'], function() {
-    require(['core/log'], function(b, log) {
+    require(['theme_paper/bootstrap','core/log'], function(b, log) {
         log.debug('Bootstrap JavaScript initialised');
     });
 });
