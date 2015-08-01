@@ -11798,6 +11798,71 @@ a:focus {
   text-decoration: none;
 }
 
+.navbar-nav .dropdown-menu {
+  background-color: #2a385c;
+  border-color: transparent;
+  color: #c9cbdc;
+}
+
+.navbar-nav .dropdown-menu:hover,
+.navbar-nav .dropdown-menu:focus {
+  background-color: transparent;
+}
+
+.navbar-nav .dropdown-menu > li > a {
+  color: #2a385c;
+}
+
+.navbar-nav .dropdown-menu > li > a:hover,
+.navbar-nav .dropdown-menu > li > a:focus {
+  color: #212121;
+  background-color: transparent;
+}
+
+.navbar-nav .dropdown-menu > .active > a,
+.navbar-nav .dropdown-menu > .active > a:hover,
+.navbar-nav .dropdown-menu > .active > a:focus {
+  color: #212121;
+  background-color: #b5b8cf;
+}
+
+.navbar-nav .dropdown-menu > .disabled > a,
+.navbar-nav .dropdown-menu > .disabled > a:hover,
+.navbar-nav .dropdown-menu > .disabled > a:focus {
+  color: #cccccc;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu {
+  background-color: #2a385c;
+  border-color: transparent;
+  color: #c9cbdc;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > li > a {
+  color: #b2dbfb;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > li > a:hover,
+.navbar-inverse .navbar-nav .dropdown-menu > li > a:focus {
+  color: #ffffff;
+  background-color: transparent;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > .active > a,
+.navbar-inverse .navbar-nav .dropdown-menu > .active > a:hover,
+.navbar-inverse .navbar-nav .dropdown-menu > .active > a:focus {
+  color: #ffffff;
+  background-color: #1a2339;
+}
+
+.navbar-inverse .navbar-nav .dropdown-menu > .disabled > a,
+.navbar-inverse .navbar-nav .dropdown-menu > .disabled > a:hover,
+.navbar-inverse .navbar-nav .dropdown-menu > .disabled > a:focus {
+  color: #444444;
+  background-color: transparent;
+}
+
 /* some very targetted corrections to roll back nameclashes between
  * Moodle and Bootstrap like .row, .label, .content, .controls
  *
