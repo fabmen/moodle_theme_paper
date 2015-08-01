@@ -105,7 +105,7 @@ class theme_paper_core_renderer extends core_renderer {
         $branchurl   = new moodle_url('/course/index.php');
         $branchsort  = -20;
         $firstmenu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
-        $content = '<ul class="nav navbar-nav">';
+        $content = '';
         foreach ($firstmenu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
@@ -115,7 +115,7 @@ class theme_paper_core_renderer extends core_renderer {
             $content .= $this->render_custom_menu_item($item, 1);
         }
 
-        return $content.'</ul>';
+        return $content;
     }
 
     public function user_menu($user = null, $withlinks = null) {

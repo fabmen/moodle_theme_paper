@@ -25,7 +25,7 @@
     position: absolute;
     display: block;
     top: 51px;
-    z-index: 1000;
+    z-index: 900;
     min-height: 100%;
     max-height: none;
     //overflow: auto;
