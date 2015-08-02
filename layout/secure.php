@@ -23,6 +23,7 @@ $knownregionpost = $PAGE->blocks->is_known_region('side-post');
 
 $regions = theme_paper_bootstrap_grid($hassidepre, $hassidepost);
 $PAGE->set_popup_notification_allowed(false);
+$haslogo = (!empty($PAGE->theme->settings->logo));
 $html = theme_paper_get_html_for_settings($OUTPUT, $PAGE);
 
 echo $OUTPUT->doctype() ?>
@@ -34,41 +35,62 @@ echo $OUTPUT->doctype() ?>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimal-ui">
 </head>
 
-<body <?php echo $OUTPUT->body_attributes($setzoom); ?>>
+<body <?php echo $OUTPUT->body_attributes(); ?>>
 
 <?php echo $OUTPUT->standard_top_of_body_html() ?>
 
 <nav role="navigation" class="navbar navbar-default <?php echo $html->navbarclass ?>">
     <div class="container-fluid">
     <div class="navbar-header">
+        <button type="button" class="navbar-toggle toggle-left hidden-lg" data-toggle="sidebar" data-target=".sidebar">
+            <span class="sr-only">Toggle menu sidebar</span>
+          <span class="fa fa-bars"></span>
+         
+        </button>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#moodle-navbar">
             <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <span class="fa fa-ellipsis-v"></span>
         </button>
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
+        <a href="<?php echo $CFG->wwwroot;?>"><?php if ($haslogo) {
+ echo html_writer::empty_tag('img', array('src'=>$PAGE->theme->settings->logo, 'class'=>'logo')); }
+
+ else { ?><a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; }?></a>
+         
     </div>
 
     <div id="moodle-navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav ">
         <?php echo $OUTPUT->custom_menu(); ?>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
         <?php echo $OUTPUT->user_menu(); ?>
-        <ul class="nav pull-right">
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
             <li><?php echo $OUTPUT->page_heading_menu(); ?></li>
         </ul>
     </div>
     </div>
 </nav>
-<header class="moodleheader">
+<div id="page" class="container-fluid">
+    
+    
+    <div id="page-content" class="row">
+        <div id="region-main" class="sidebar-content-animate <?php echo $regions['content']; ?>">
+        <header id="page-header" class="clearfix">
     <div class="container-fluid">
     <a href="<?php echo $CFG->wwwroot ?>" class="logo"></a>
     <?php echo $OUTPUT->page_heading(); ?>
     </div>
-</header>
+            <div id="page-navbar" class="clearfix">
+                <nav class="breadcrumb-nav" role="navigation" aria-label="breadcrumb"><?php echo $OUTPUT->navbar(); ?></nav>
+                <div class="breadcrumb-button"><?php echo $OUTPUT->page_heading_button(); ?></div>
 
+            </div>
 
-    <div id="page-content" class="row">
-        <div id="region-main" class="<?php echo $regions['content']; ?>">
+        <div id="course-header">
+            <?php echo $OUTPUT->course_header(); ?>
+        </div>
+        </header>
             <?php
             echo $OUTPUT->course_content_header();
 
@@ -79,11 +101,11 @@ echo $OUTPUT->doctype() ?>
 
         <?php
         if ($knownregionpre) {
-            echo $OUTPUT->blocks('side-pre', $regions['pre']);
+            echo $OUTPUT->blocks('side-pre', $regions['pre'] . ' sidebar sidebar sidebar-left sidebar-open sidebar-lg-show sidebar-animate' . $html->sidebarclass);
         }?>
         <?php
         if ($knownregionpost) {
-            echo $OUTPUT->blocks('side-post', $regions['post']);
+            echo $OUTPUT->blocks('side-post', 'sidebar-other-animate ' .$regions['post']);
         }?>
     </div>
 

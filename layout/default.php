@@ -23,7 +23,7 @@ $knownregionpost = $PAGE->blocks->is_known_region('side-post');
 
 $regions = theme_paper_bootstrap_grid($hassidepre, $hassidepost);
 $PAGE->set_popup_notification_allowed(false);
-
+$haslogo = (!empty($PAGE->theme->settings->logo));
 $html = theme_paper_get_html_for_settings($OUTPUT, $PAGE);
 
 echo $OUTPUT->doctype() ?>
@@ -51,7 +51,10 @@ echo $OUTPUT->doctype() ?>
             <span class="sr-only">Toggle navigation</span>
             <span class="fa fa-ellipsis-v"></span>
         </button>
-        <a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; ?></a>
+        <a href="<?php echo $CFG->wwwroot;?>"><?php if ($haslogo) {
+ echo html_writer::empty_tag('img', array('src'=>$PAGE->theme->settings->logo, 'class'=>'logo')); }
+
+ else { ?><a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; }?></a>
          
     </div>
 
