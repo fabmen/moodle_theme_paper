@@ -97,6 +97,9 @@ a:hover, a:focus {
     text-decoration: none;
 }
 
+.row{
+    position:relative;
+}
 .navbar-nav  .dropdown-menu {
  background-color: @navbar-default-bg;
   border-color: @navbar-default-border;
@@ -157,4 +160,8 @@ a:hover, a:focus {
         background-color: @navbar-inverse-link-disabled-bg;
       }
     }
+}
+.navbar .dropdown-toggle .userpicture{
+border-radius: 50%;
+margin: -10px 10px -7px -12px;
 }

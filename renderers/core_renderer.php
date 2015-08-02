@@ -109,8 +109,33 @@ class theme_paper_core_renderer extends core_renderer {
         foreach ($firstmenu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
-        
         $content .= '</ul><ul class="nav navbar-nav">';
+        $addlangmenu = true;
+        $langs = get_string_manager()->get_list_of_translations();
+        if (count($langs) < 2
+            or empty($CFG->langmenu)
+            or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
+            $addlangmenu = false;
+        }
+
+        if (!$menu->has_children() && $addlangmenu === false) {
+            return '';
+        }
+
+        if ($addlangmenu) {
+            $strlang =  get_string('language');
+            $currentlang = current_language();
+            if (isset($langs[$currentlang])) {
+                $currentlang = $langs[$currentlang];
+            } else {
+                $currentlang = $strlang;
+            }
+            $this->language = $menu->add('<i class="fa fa-flag"></i>&nbsp;'.$currentlang, new moodle_url('#'), $strlang, 10000);
+            foreach ($langs as $langtype => $langname) {
+                $this->language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
+            }
+        }
+        
         foreach ($menu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
@@ -119,62 +144,174 @@ class theme_paper_core_renderer extends core_renderer {
     }
 
     public function user_menu($user = null, $withlinks = null) {
-        $usermenu = new custom_menu('', current_language());
-        return $this->render_user_menu($usermenu);
-    }
+        $usermenu = new custom_menu('', '');
+        
+         global $USER, $CFG;
+        require_once($CFG->dirroot . '/user/lib.php');
 
-    protected function render_user_menu(custom_menu $menu) {
-        global $CFG, $USER;
-
-        $addusermenu = true;
-        $addlangmenu = true;
-
-        $langs = get_string_manager()->get_list_of_translations();
-        if (count($langs) < 2
-        or empty($CFG->langmenu)
-        or ($this->page->course != SITEID and !empty($this->page->course->lang))) {
-            $addlangmenu = false;
+        if (is_null($user)) {
+            $user = $USER;
         }
 
-        if ($addlangmenu) {
-            $language = $menu->add(get_string('language'), new moodle_url('#'), get_string('language'), 10000);
-            foreach ($langs as $langtype => $langname) {
-                $language->add($langname, new moodle_url($this->page->url, array('lang' => $langtype)), $langname);
+        // Note: this behaviour is intended to match that of core_renderer::login_info,
+        // but should not be considered to be good practice; layout options are
+        // intended to be theme-specific. Please don't copy this snippet anywhere else.
+        if (is_null($withlinks)) {
+            $withlinks = empty($this->page->layout_options['nologinlinks']);
+        }
+
+        // Add a class for when $withlinks is false.
+        $usermenuclasses = 'usermenu';
+        if (!$withlinks) {
+            $usermenuclasses .= ' withoutlinks';
+        }
+
+        $returnstr = "";
+
+        // If during initial install, return the empty return string.
+        if (during_initial_install()) {
+            return $returnstr;
+        }
+
+        $loginpage = $this->is_login_page();
+        $loginurl = get_login_url();
+        // If not logged in, show the typical not-logged-in string.
+        if (!isloggedin() || $loginpage) {
+            $branchtitle = get_string('loggedinnot', 'moodle');
+            $branchlabel = get_string('loggedinnot', 'moodle');
+            if (!$loginpage) {
+                $returnstr = $loginurl;
+                
             }
-        }
+           
 
-        if ($addusermenu) {
-            if (isloggedin()) {
-                $usermenu = $menu->add(fullname($USER), new moodle_url('#'), fullname($USER), 10001);
-                $usermenu->add(
-                    '<span class="glyphicon glyphicon-off"></span>' . get_string('logout'),
-                    new moodle_url('/login/logout.php', array('sesskey' => sesskey(), 'alt' => 'logout')),
-                    get_string('logout')
-                );
-
-                $usermenu->add(
-                    '<span class="glyphicon glyphicon-user"></span>' . get_string('viewprofile'),
-                    new moodle_url('/user/profile.php', array('id' => $USER->id)),
-                    get_string('viewprofile')
-                );
-
-                $usermenu->add(
-                    '<span class="glyphicon glyphicon-cog"></span>' . get_string('editmyprofile'),
-                    new moodle_url('/user/edit.php', array('id' => $USER->id)),
-                    get_string('editmyprofile')
-                );
-            } else {
-                $usermenu = $menu->add(get_string('login'), new moodle_url('/login/index.php'), get_string('login'), 10001);
+        } else if (isguestuser()) {
+                 // If logged in as a guest user, show a string to that effect.
+            $branchtitle = get_string('loggedinasguest');
+            $branchlabel = get_string('loggedinasguest');
+            if (!$loginpage && $withlinks) {
+                $returnstr =$loginurl;
             }
-        }
 
-        $content = '<ul class="nav navbar-nav navbar-right">';
-        foreach ($menu->get_children() as $item) {
+            
+        }else{
+
+            // Get some navigation opts.
+            $opts = user_get_user_navigation_info($user, $this->page, $this->page->course);
+    
+            $avatarcontents =$opts->metadata['useravatar'];
+            $usertextcontents = $opts->metadata['userfullname'];
+    
+            // Other user.
+            if (!empty($opts->metadata['asotheruser'])) {
+                $avatarcontents .= $opts->metadata['realuseravatar'];
+                $usertextcontents = $opts->metadata['realuserfullname'];
+                $usertextcontents .=get_string(
+                        'loggedinas',
+                        'moodle',
+                        $opts->metadata['userfullname']
+                    );
+            }
+    
+            // Role.
+            if (!empty($opts->metadata['asotherrole'])) {
+                $role = core_text::strtolower(preg_replace('#[ ]+#', '-', trim($opts->metadata['rolename'])));
+                $usertextcontents .= $opts->metadata['rolename'];
+            }
+    
+            // User login failures.
+            if (!empty($opts->metadata['userloginfail'])) {
+                $usertextcontents .= $opts->metadata['userloginfail'];
+            }
+    
+            // MNet.
+            if (!empty($opts->metadata['asmnetuser'])) {
+                $mnet = strtolower(preg_replace('#[ ]+#', '-', trim($opts->metadata['mnetidprovidername'])));
+                $usertextcontents .=$opts->metadata['mnetidprovidername'];
+            }
+    
+            $branchtitle = $usertextcontents;
+            $branchlabel = $avatarcontents.$usertextcontents;
+        }
+        $branchurl   = new moodle_url('#');
+        $branchsort  = 1000;
+        $branch = $usermenu->add($branchlabel, $branchurl, $branchtitle, $branchsort);
+        if ($returnstr!=''){
+            $branch->add('<i class="fa fa-sign-in"></i>&nbsp;' .get_string('login'), new moodle_url($returnstr), get_string('login'));
+        }else if (!$loginpage) {
+            if ($withlinks) {
+                $navitemcount = count($opts->navitems);
+                $idx = 0;
+                foreach ($opts->navitems as $key => $value) {
+    
+                    switch ($value->itemtype) {
+                        case 'divider':
+                            // If the nav item is a divider, add one and skip link processing.
+                           $branch->add('####');
+                            break;
+    
+                        case 'invalid':
+                            // Silently skip invalid entries (should we post a notification?).
+                            break;
+    
+                        case 'link':
+                            // Process this as a link item.
+                            $pix = null;
+                            if (isset($value->pix) && !empty($value->pix)) {
+                                switch (substr($value->pix,2)) {
+                                    case 'course':
+                                        $faicon = 'dashboard';
+                                        break;
+                                    case 'grades':
+                                        $faicon = 'calculator';
+                                        break;
+                                    case 'message':
+                                        $faicon = 'envelope';
+                                        break;
+                                    case 'preferences':
+                                        $faicon = 'cogs';
+                                        break;
+                                     case 'logout':
+                                        $faicon = 'sign-out';
+                                        break;
+                                    case 'login':
+                                        $faicon = 'sign-in';
+                                        break;
+                                    default :
+                                        $faicon = substr($value->pix,2);
+                                }
+                                $label = '<i class="fa fa-'.$faicon.'"></i>&nbsp;' . $value->title;
+                            } else if (isset($value->imgsrc) && !empty($value->imgsrc)) {
+                                $label = html_writer::img(
+                                    $value->imgsrc,
+                                    $value->title,
+                                    array('class' => 'iconsmall')
+                                ) . $value->title;
+                            }
+                           
+                            $branch->add($label, new moodle_url($value->url), $value->title);
+                            break;
+                    }
+    
+                    $idx++;
+    
+                    // Add dividers after the first item and before the last item.
+                    if ($idx == 1 || $idx == $navitemcount - 1) {
+                        $branch->add('####');
+                    }
+                }
+            }
+        }            
+        $content = '';
+        foreach ($usermenu->get_children() as $item) {
             $content .= $this->render_custom_menu_item($item, 1);
         }
 
-        return $content.'</ul>';
+        return $content;
+
     }
+
+    
 
     protected function render_custom_menu_item(custom_menu_item $menunode, $level = 0 ) {
         static $submenucount = 0;
@@ -213,14 +350,21 @@ class theme_paper_core_renderer extends core_renderer {
             }
             $content .= '</ul>';
         } else {
-            $content = '<li>';
             // The node doesn't have children so produce a final menuitem.
+            // Also, if the node's text matches '####', add a class so we can treat it as a divider.
+            if (preg_match("/^#+$/", $menunode->get_text())) {
+                // This is a divider.
+                $content = '<li class="divider">&nbsp;</li>';
+            } else {
+                $content = '<li>';
             if ($menunode->get_url() !== null) {
                 $url = $menunode->get_url();
             } else {
                 $url = '#';
             }
             $content .= html_writer::link($url, $menunode->get_text(), array('title' => $menunode->get_title()));
+                $content .= '</li>';
+            }
         }
         return $content;
     }

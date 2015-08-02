@@ -9630,6 +9630,10 @@ a:focus {
   color: #444;
   background-color: transparent;
 }
+.navbar-nav .dropdown-toggle .userpicture {
+  margin: -10px 10px -7px -12px;
+  border-radius: 50%;
+}
 /* some very targetted corrections to roll back nameclashes between
  * Moodle and Bootstrap like .row, .label, .content, .controls
  *
