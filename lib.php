@@ -190,6 +190,6 @@ function theme_paper_get_html_for_settings(renderer_base $output, moodle_page $p
     if (!empty($page->theme->settings->footnote)) {
         $return->footnote = '<div class="footnote text-center">'.format_text($page->theme->settings->footnote).'</div>';
     }
-
+    $return->logo = $page->theme->setting_file_url('logo', 'logo');
     return $return;
 }

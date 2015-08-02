@@ -52,7 +52,7 @@ echo $OUTPUT->doctype() ?>
             <span class="fa fa-ellipsis-v"></span>
         </button>
         <a href="<?php echo $CFG->wwwroot;?>"><?php if ($haslogo) {
- echo html_writer::empty_tag('img', array('src'=>$PAGE->theme->settings->logo, 'class'=>'logo')); }
+ echo html_writer::empty_tag('img', array('src'=>$html->logo, 'class'=>'logo')); }
 
  else { ?><a class="navbar-brand" href="<?php echo $CFG->wwwroot;?>"><?php echo $SITE->shortname; }?></a>
          
