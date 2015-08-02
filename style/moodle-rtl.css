@@ -11861,6 +11861,11 @@ a:focus {
   margin: -10px -12px -7px 10px;
 }
 
+.navbar-header .logo {
+  margin: 5px;
+  height: 40px;
+}
+
 /* some very targetted corrections to roll back nameclashes between
  * Moodle and Bootstrap like .row, .label, .content, .controls
  *
@@ -26654,7 +26659,7 @@ box-shadow: 2px 2px 5px [strNavShadeColor];
 /* sidebar settings */
 
 .sidebar {
-  position: absolute;
+  position: absolute !important;
   display: block;
   top: 0px;
   z-index: 900;

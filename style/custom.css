@@ -4,16 +4,10 @@
     }
     
 .dimmed:not(.conditionalhidden):after, .dimmed_text:not(.conditionalhidden):after {
- display: inline-block;
-  width: 14px;
-  height: 14px;
-  .ie7-restore-right-whitespace();
-  line-height: 14px;
-  vertical-align: text-top;
-  background-image: url("../img/glyphicons-halflings.png");
-  background-position: -120px -120px;
-  background-repeat: no-repeat;
-  margin-top: 1px;
+
+  content:"\f070";
+  font-family: FontAwesome;
+  padding-left: 10px;
 }
 
 /* Custom CSS
