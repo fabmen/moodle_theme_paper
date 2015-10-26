@@ -10134,7 +10134,6 @@ form.popupform div {
   vertical-align: text-bottom;
 }
 .no-overflow {
-  margin-bottom: 13.5px;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;

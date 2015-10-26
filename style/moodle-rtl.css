@@ -12442,7 +12442,6 @@ form.popupform div {
 }
 
 .no-overflow {
-  margin-bottom: 13.5px;
   overflow-y: hidden;
   overflow-x: auto;
   -ms-overflow-style: -ms-autohiding-scrollbar;
