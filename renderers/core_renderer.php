@@ -197,7 +197,7 @@ class theme_paper_core_renderer extends core_renderer {
         }else{
 
             // Get some navigation opts.
-            $opts = user_get_user_navigation_info($user, $this->page, $this->page->course);
+            $opts = user_get_user_navigation_info($user, $this->page);
     
             $avatarcontents =$opts->metadata['useravatar'];
             $usertextcontents = $opts->metadata['userfullname'];
